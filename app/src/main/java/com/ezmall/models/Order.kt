@@ -3,14 +3,15 @@ package com.ezmall.models
 data class Order(
     val orderNumber: String,
     val subOrderNumber: String,
-    val currentOrderStatus: OrderStatus,
+    var currentOrderStatus: OrderStatus,
     val orderStatusList: List<OrderStatus>,
     val products: Map<Product, Int>, // product and quantity
     val issues: List<Issue>?,
     val shippingCost: Float = 0f,
     val couponDiscounts: Float = 0f,
     val otherDiscounts: Float = 0f,
-    val orderedBy: User
+    val orderedBy: User,
+    val orderDate:String
 ) {
     val productCost: Float
         get() {
