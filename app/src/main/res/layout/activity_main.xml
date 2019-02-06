@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.ezmall.ui.main.MainViewModel" />
+    </data>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_activity"
+        android:orientation="vertical">
+
+        <include layout="@layout/include_toolbar" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minHeight="?attr/listPreferredItemHeight"
+                android:text="@string/view_chooser_text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                android:onClick="@{() -> viewModel.openOrderList()}"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="@string/order_list"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                android:onClick="@{() -> viewModel.openOrderDetails()}"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="@string/order_with_issues"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
+                android:onClick="@{() -> viewModel.openOrderDetails()}"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
+                android:text="@string/order_no_issues"
+                android:textAppearance="?attr/textAppearanceListItem" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

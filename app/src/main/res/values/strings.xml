@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">EZMall</string>
+    <string name="view_chooser_text">Select an option from below:</string>
+    <string name="order_list">Order List</string>
+    <string name="order_with_issues">Order Detail (With Issues)</string>
+    <string name="order_no_issues">Order (No Issues)</string>
+</resources>
