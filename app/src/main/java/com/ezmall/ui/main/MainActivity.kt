@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.ezmall.R
 import com.ezmall.databinding.ActivityMainBinding
 import com.ezmall.ui.commons.ToolbarActivity
+import com.ezmall.ui.orderdetail.OrderDetailActivity
 import com.ezmall.ui.orderlist.OrderListActivity
 
 class MainActivity : ToolbarActivity<ActivityMainBinding>(), Navigator {
@@ -43,5 +44,8 @@ class MainActivity : ToolbarActivity<ActivityMainBinding>(), Navigator {
     }
 
     override fun goToOrderDetail() {
+        startActivity(
+            Intent(this,OrderDetailActivity::class.java)
+        )
     }
 }

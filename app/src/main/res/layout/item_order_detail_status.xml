@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="orderStatus"
+            type="com.ezmall.models.OrderStatus" />
+    </data>
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="-20dp"
+        tools:ignore="RtlHardcoded,RtlSymmetry">
+
+        <RelativeLayout
+            android:layout_width="65dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/margin_10dp">
+
+
+            <View
+                android:id="@+id/crowUpperLine"
+                android:layout_width="@dimen/margin_2dp"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/crowImg"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="18dp"
+                android:background="@color/colorPrimaryDark" />
+
+            <View
+                android:id="@+id/crowLowerLine"
+                android:layout_width="@dimen/margin_2dp"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/crowImg"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="18dp"
+                android:background="@color/colorPrimaryDark" />
+
+            <View
+                android:id="@+id/crowBackground"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/bg_timeline_circle" />
+
+            <ImageView
+                android:id="@+id/crowImg"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="-12.5dp"
+                android:layout_marginBottom="-12.5dp"
+                android:scaleType="centerCrop" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/crowTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10-12-2018"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="12sp" />
+
+
+            <TextView
+                android:id="@+id/crowDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/crowTitle"
+                android:layout_centerVertical="true"
+                android:textAppearance="?android:attr/textAppearanceSearchResultSubtitle"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="11sp"
+                tools:text="Description" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

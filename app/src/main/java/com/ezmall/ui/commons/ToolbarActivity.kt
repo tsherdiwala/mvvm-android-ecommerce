@@ -38,7 +38,7 @@ abstract class ToolbarActivity<T : ViewDataBinding> : DaggerAppcompatActivity() 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         dataBinding = DataBindingUtil.setContentView(this, layoutId)
-        dataBinding.setLifecycleOwner(this)
+        dataBinding.lifecycleOwner = this
         setSupportActionBar(toolbar)
 
         if (hasBack) {

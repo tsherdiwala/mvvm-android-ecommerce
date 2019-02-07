@@ -1,6 +1,7 @@
 package com.ezmall.di
 
 import com.ezmall.di.modules.uimodules.MainModule
+import com.ezmall.di.modules.uimodules.OrderDetailModule
 import com.ezmall.di.modules.uimodules.OrderListModule
 import dagger.Component
 import javax.inject.Singleton
@@ -10,7 +11,8 @@ import javax.inject.Singleton
     modules = [
         //UIModules
         MainModule::class,
-        OrderListModule::class
+        OrderListModule::class,
+        OrderDetailModule::class
     ]
 )
 interface AppComponent {

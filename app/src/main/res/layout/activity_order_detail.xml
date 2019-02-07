@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <variable
-            name="order"
-            type="com.ezmall.models.Order" />
+            name="viewModel"
+            type="com.ezmall.ui.orderdetail.OrderDetailViewModel" />
     </data>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -15,7 +15,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/orderRV"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            app:order="@{viewModel.order}" />
 
     </FrameLayout>
 </layout>

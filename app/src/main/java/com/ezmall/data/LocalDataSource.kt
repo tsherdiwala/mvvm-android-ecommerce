@@ -6,7 +6,7 @@ import java.util.*
 import javax.inject.Inject
 
 class LocalDataSource @Inject constructor() {
-    fun getOrders(): Single<List<Order>> {
+    fun getOrders(): Single<Order> {
         val product = Product("pid", "Test Product", 123.12f, "M", "Blue")
 
         val user = User(
@@ -35,6 +35,6 @@ class LocalDataSource @Inject constructor() {
             2.0f,
             user
         )
-        return Single.just(listOf(order))
+        return Single.just(order)
     }
 }
