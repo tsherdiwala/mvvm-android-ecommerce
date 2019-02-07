@@ -1,5 +1,6 @@
 package com.ezmall.data
 
+import com.ezmall.R
 import com.ezmall.models.*
 import com.ezmall.ui.commons.MONTH_SHORT_NAME
 import io.reactivex.Single
@@ -10,7 +11,14 @@ class LocalDataSource @Inject constructor() {
 
     private fun getOrder(): Order {
 
-        val product = Product("pid", "Test Product", 123.12f, "M", "Blue")
+        val product = Product(
+            "pid",
+            "Test Product",
+            123.12f,
+            "M",
+            "Blue",
+            "https://images.voonik.com/78416852/embroidred-designer-navy-blue-and-yellow-color-geor-original.jpg?1512544999"
+        )
 
         val calender = Calendar.getInstance()
 
@@ -51,7 +59,7 @@ class LocalDataSource @Inject constructor() {
 
         val order = mutableListOf<Order>()
 
-        for (i in 0..6) {
+        for (i in 0..5) {
             val ab = getOrder()
             when (i) {
                 1 -> ab.currentOrderStatus = OrderStatus(OrderStatusEnum.CANCELLED, Date())

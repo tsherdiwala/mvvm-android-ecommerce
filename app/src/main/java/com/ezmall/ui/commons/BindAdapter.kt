@@ -1,5 +1,7 @@
 package com.ezmall.ui.commons
 
+import android.util.Log
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
@@ -42,6 +44,21 @@ fun setMutableOrderDate(view: TextView, text: String?) {
     }
 }
 
+@BindingAdapter("mutableImageUrl")
+fun setMutableImageUrl(view: ImageView, map: Map<Product, Int>?) {
+
+    val parentActivity = view.getParentActivity()
+    if (parentActivity != null && map != null) {
+        map.forEach {
+            Log.e("TAG", it.key.imageUrl)
+            GlideApp.with(view)
+                .load(it.key.imageUrl)
+                .placeholder(R.drawable.ic_launcher_background)
+                .into(view)
+        }
+
+    }
+}
 
 @BindingAdapter("mutableTextStatus")
 fun setMutableTextStatus(view: TextView, text: OrderStatus?) {

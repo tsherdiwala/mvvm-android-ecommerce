@@ -12,4 +12,5 @@
     <string name="order_Status_Cancle">Cancelled</string>
     <string name="order_Status_Shipped">Shipped</string>
     <string name="order_Status_Delivered">Delivered</string>
+    <string name="my_orders">My Orders</string>
 </resources>

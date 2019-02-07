@@ -35,6 +35,7 @@ class OrderListActivity : ToolbarActivity<ActivityOrderListBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setTitle(R.string.my_orders)
         val activity = this@OrderListActivity
 
 
