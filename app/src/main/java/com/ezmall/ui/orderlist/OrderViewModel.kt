@@ -3,6 +3,7 @@ package com.ezmall.ui.orderlist
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ezmall.models.*
+import java.util.*
 
 class OrderViewModel : ViewModel() {
 
@@ -18,7 +19,7 @@ class OrderViewModel : ViewModel() {
     private val orderBy = MutableLiveData<User>()
 
     private val productPrice = MutableLiveData<Float>()
-    private val orderDate = MutableLiveData<String>()
+    private val orderDate = MutableLiveData<Date>()
 
 
     fun bind(order: Order) {
@@ -45,7 +46,7 @@ class OrderViewModel : ViewModel() {
         return productPrice
     }
 
-    fun getOrderDate(): MutableLiveData<String> {
+    fun getOrderDate(): MutableLiveData<Date> {
         return orderDate
     }
 
