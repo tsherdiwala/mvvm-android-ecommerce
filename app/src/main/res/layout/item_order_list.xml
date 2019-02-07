@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="orderViewModel"
-            type="com.ezmall.ui.orderlist.OrderViewModel" />
+            name="order"
+            type="com.ezmall.models.Order" />
     </data>
 
     <LinearLayout xmlns:tool="http://schemas.android.com/tools"
@@ -44,7 +44,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp"
-                app:mutableProductText="@{orderViewModel.getProductName()}"
+                app:mutableProductText="@{order.products}"
                 tool:text="Pick any 1 Embrodered Suit by Zoha Crean" />
 
             <TextView
@@ -53,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_7dp"
                 android:textColor="@color/colorPrimaryDark"
-                app:mutableTextFloat="@{orderViewModel.getProductPrice()}"
+                app:mutableTextFloat="@{order.payable}"
                 tool:text="$17990" />
 
             <TextView
@@ -61,7 +61,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_7dp"
-                app:mutableTextStatus="@{orderViewModel.getCurrentOrderStatus()}"
+                app:mutableTextStatus="@{order.currentOrderStatus}"
                 tool:text="Cancelled" />
 
             <TextView
@@ -69,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_7dp"
-                app:mutableText="@{orderViewModel.getOrderDate()}"
+                app:mutableOrderDate="@{order.orderDate}"
                 tool:text="Date : Dec 20,2016" />
 
             <LinearLayout

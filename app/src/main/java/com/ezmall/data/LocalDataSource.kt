@@ -1,6 +1,7 @@
 package com.ezmall.data
 
 import com.ezmall.models.*
+import com.ezmall.ui.commons.MONTH_SHORT_NAME
 import io.reactivex.Single
 import java.util.*
 import javax.inject.Inject
@@ -11,6 +12,10 @@ class LocalDataSource @Inject constructor() {
 
         val product = Product("pid", "Test Product", 123.12f, "M", "Blue")
 
+        val calender = Calendar.getInstance()
+
+        val ab = "${MONTH_SHORT_NAME[calender.time.month]} ${calender.time.date} ,${calender.time.year}"
+
         val user = User(
             "uid1",
             "Tejas Sherdiwala",
@@ -19,6 +24,7 @@ class LocalDataSource @Inject constructor() {
         )
 
         return Order(
+            "abc",
             "12345",
             "12345",
             OrderStatus(OrderStatusEnum.ORDERED, Date()),
@@ -36,7 +42,7 @@ class LocalDataSource @Inject constructor() {
             1.1f,
             2.0f,
             user,
-            Date()
+            ab
         )
     }
 

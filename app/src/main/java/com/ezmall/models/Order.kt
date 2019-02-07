@@ -3,6 +3,7 @@ package com.ezmall.models
 import java.util.*
 
 data class Order(
+    val title: String,
     val orderNumber: String,
     val subOrderNumber: String,
     var currentOrderStatus: OrderStatus,
@@ -13,7 +14,7 @@ data class Order(
     val couponDiscounts: Float = 0f,
     val otherDiscounts: Float = 0f,
     val orderedBy: User,
-    val orderDate:Date
+    val orderDate: String
 ) {
     val productCost: Float
         get() {

@@ -1,6 +1,7 @@
 package com.ezmall.ui.orderlist
 
 import android.util.Log
+import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.ViewModel
 import com.ezmall.data.Repository
 import com.ezmall.models.Order
@@ -13,26 +14,27 @@ class OrderListViewModel(private val repository: Repository) : ViewModel() {
 
     private val disposables = CompositeDisposable()
 
-    val navigateFetchOrderListSuccess = SingleLiveEvent<List<Order>>()
-    val navigateFetchOrderListError = SingleLiveEvent<Throwable>()
-
+    val orders = ObservableArrayList<Order>()
 
     fun fetchOrders() {
         repository.fetchOrders()
-            ?.subscribe(
+            .subscribe(
                 {
-                    Log.e(TAG, "$it")
-                    navigateFetchOrderListSuccess.value = it
+                    this.orders.addAll(it)
                 },
                 {
                     Log.e(TAG, "Unable to get order", it)
-                    navigateFetchOrderListError.value = it
                 }
             )
             ?.also {
                 disposables.add(it)
             }
 
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        disposables.dispose()
     }
 
 }

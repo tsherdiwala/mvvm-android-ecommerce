@@ -6,4 +6,10 @@
     <string name="order_no_issues">Order (No Issues)</string>
     <string name="order_details">Order Details</string>
     <string name="open_issues">Open Issue: 1</string>
+    <string name="order_date">Date: %s</string>
+    <string name="order_Status_ordered">Ordered</string>
+    <string name="order_Status_Ready_to_ship">Ready to ship</string>
+    <string name="order_Status_Cancle">Cancelled</string>
+    <string name="order_Status_Shipped">Shipped</string>
+    <string name="order_Status_Delivered">Delivered</string>
 </resources>
