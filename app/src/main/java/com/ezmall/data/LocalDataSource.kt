@@ -36,7 +36,7 @@ class LocalDataSource @Inject constructor() {
             1.1f,
             2.0f,
             user,
-            "Dec 12,2019"
+            Date()
         )
     }
 
