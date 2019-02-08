@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ezmall.R
 import com.ezmall.extension.getParentActivity
 import com.ezmall.models.Order
-import com.ezmall.models.OrderStatus
 import com.ezmall.models.OrderStatusEnum
 import com.ezmall.models.Product
 import com.ezmall.ui.orderlist.OrderListAdapter
@@ -25,7 +24,7 @@ fun setOrderList(recyclerView: RecyclerView, item: MutableList<Order>) {
     }
 }
 
-@BindingAdapter(value = ["date", "date_format", "prefix"], requireAll = false)
+@BindingAdapter(value = ["date", "dateFormat", "prefix"], requireAll = false)
 fun setDate(view: TextView, date: Date?, format: String?, prefix: Int?) {
     val parentActivity = view.getParentActivity()
     if (parentActivity != null) {
@@ -60,30 +59,31 @@ fun setMutableImageUrl(view: ImageView, map: Map<Product, Int>?) {
     }
 }
 
-@BindingAdapter("mutableTextStatus")
-fun setMutableTextStatus(view: TextView, text: OrderStatus?) {
+@BindingAdapter("orderStatus")
+fun setMutableTextStatus(view: TextView, orderStatus: OrderStatusEnum?) {
 
     val parentActivity = view.getParentActivity()
-    if (parentActivity != null && text != null) {
-        when {
-            text.orderStatus.name == OrderStatusEnum.ORDERED.name -> {
-                view.text = parentActivity.getString(R.string.order_Status_ordered)
+    if (parentActivity != null && orderStatus != null) {
+
+        when (orderStatus) {
+            OrderStatusEnum.ORDERED -> {
+                view.text = parentActivity.getString(R.string.order_status_ordered)
                 view.setTextColor(ContextCompat.getColor(parentActivity, android.R.color.holo_red_dark))
             }
-            text.orderStatus.name == OrderStatusEnum.READY_TO_SHIP.name -> {
-                view.text = parentActivity.getString(R.string.order_Status_Ready_to_ship)
+            OrderStatusEnum.READY_TO_SHIP -> {
+                view.text = parentActivity.getString(R.string.order_status_ready_to_ship)
                 view.setTextColor(ContextCompat.getColor(parentActivity, android.R.color.holo_blue_dark))
             }
-            text.orderStatus.name == OrderStatusEnum.CANCELLED.name -> {
-                view.text = parentActivity.getString(R.string.order_Status_Cancle)
+            OrderStatusEnum.CANCELLED -> {
+                view.text = parentActivity.getString(R.string.order_status_cancelled)
                 view.setTextColor(ContextCompat.getColor(parentActivity, android.R.color.holo_green_dark))
             }
-            text.orderStatus.name == OrderStatusEnum.SHIPPED.name -> {
-                view.text = parentActivity.getString(R.string.order_Status_Shipped)
+            OrderStatusEnum.SHIPPED -> {
+                view.text = parentActivity.getString(R.string.order_Status_shipped)
                 view.setTextColor(ContextCompat.getColor(parentActivity, android.R.color.holo_orange_light))
             }
-            text.orderStatus.name == OrderStatusEnum.DELIVERED.name -> {
-                view.text = parentActivity.getString(R.string.order_Status_Delivered)
+            OrderStatusEnum.DELIVERED -> {
+                view.text = parentActivity.getString(R.string.order_Status_delivered)
                 view.setTextColor(ContextCompat.getColor(parentActivity, android.R.color.holo_purple))
             }
         }

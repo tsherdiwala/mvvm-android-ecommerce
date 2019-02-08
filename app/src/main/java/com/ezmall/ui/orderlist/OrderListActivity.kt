@@ -1,17 +1,12 @@
 package com.ezmall.ui.orderlist
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ezmall.R
 import com.ezmall.databinding.ActivityOrderListBinding
-import com.ezmall.databinding.ItemOrderListBinding
-import com.ezmall.models.Order
 import com.ezmall.ui.commons.AppViewModelFactory
 import com.ezmall.ui.commons.ToolbarActivity
 import javax.inject.Inject
@@ -35,7 +30,7 @@ class OrderListActivity : ToolbarActivity<ActivityOrderListBinding>() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setTitle(R.string.my_orders)
+        setTitle(R.string.title_orders)
         val activity = this@OrderListActivity
 
 

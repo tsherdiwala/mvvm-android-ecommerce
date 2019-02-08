@@ -7,10 +7,10 @@
     <string name="order_details">Order Details</string>
     <string name="open_issues">Open Issue: 1</string>
     <string name="order_date">Date: %s</string>
-    <string name="order_Status_ordered">Ordered</string>
-    <string name="order_Status_Ready_to_ship">Ready to ship</string>
-    <string name="order_Status_Cancle">Cancelled</string>
-    <string name="order_Status_Shipped">Shipped</string>
-    <string name="order_Status_Delivered">Delivered</string>
-    <string name="my_orders">My Orders</string>
+    <string name="order_status_ordered">Ordered</string>
+    <string name="order_status_ready_to_ship">Ready to ship</string>
+    <string name="order_status_cancelled">Cancelled</string>
+    <string name="order_Status_shipped">Shipped</string>
+    <string name="order_Status_delivered">Delivered</string>
+    <string name="title_orders">My Orders</string>
 </resources>
