@@ -5,4 +5,6 @@
     <color name="colorAccent">#f86d5a</color>
 
     <color name="bg_activity">@android:color/white</color>
+
+    <color name="bg_status_icon">#d8d8d8</color>
 </resources>
