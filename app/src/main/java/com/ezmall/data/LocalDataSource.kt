@@ -20,10 +20,6 @@ class LocalDataSource @Inject constructor() {
             "https://images.voonik.com/78416852/embroidred-designer-navy-blue-and-yellow-color-geor-original.jpg?1512544999"
         )
 
-        val calender = Calendar.getInstance()
-
-        val ab = "${MONTH_SHORT_NAME[calender.time.month]} ${calender.time.date} ,${calender.time.year}"
-
         val user = User(
             "uid1",
             "Tejas Sherdiwala",
@@ -50,7 +46,7 @@ class LocalDataSource @Inject constructor() {
             1.1f,
             2.0f,
             user,
-            ab
+            Date()
         )
     }
 

@@ -5,8 +5,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.ezmall.R
 import com.ezmall.extension.getParentActivity
@@ -15,6 +13,8 @@ import com.ezmall.models.OrderStatus
 import com.ezmall.models.OrderStatusEnum
 import com.ezmall.models.Product
 import com.ezmall.ui.orderlist.OrderListAdapter
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 @BindingAdapter("orderList")
@@ -25,11 +25,22 @@ fun setOrderList(recyclerView: RecyclerView, item: MutableList<Order>) {
     }
 }
 
-@BindingAdapter("mutableOrderDate")
-fun setMutableOrderDate(view: TextView, text: String?) {
+@BindingAdapter(value = ["date", "date_format", "prefix"], requireAll = false)
+fun setDate(view: TextView, date: Date?, format: String?, prefix: Int?) {
     val parentActivity = view.getParentActivity()
-    if (parentActivity != null && text != null) {
-        view.text = parentActivity.getString(R.string.order_date, text)
+    if (parentActivity != null) {
+
+
+        (format ?: "dd/MM/yy").run {
+            SimpleDateFormat(this, Locale.ENGLISH).run {
+
+                if (prefix != null) {
+                    view.text = parentActivity.getString(prefix, format(date))
+                } else {
+                    view.text = format(date)
+                }
+            }
+        }
     }
 }
 

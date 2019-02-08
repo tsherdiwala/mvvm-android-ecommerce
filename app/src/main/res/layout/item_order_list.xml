@@ -4,6 +4,8 @@
 
     <data>
 
+        <import type="com.ezmall.R" />
+
         <variable
             name="order"
             type="com.ezmall.models.Order" />
@@ -70,7 +72,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/margin_7dp"
-                app:mutableOrderDate="@{order.orderDate}"
+                app:date="@{order.orderDate}"
+                app:prefix="@{R.string.order_date}"
+                app:date_format='@{"MMM dd, yyyy"}'
                 tool:text="Date : Dec 20,2016" />
 
             <LinearLayout
