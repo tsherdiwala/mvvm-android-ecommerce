@@ -1,16 +1,20 @@
 package com.ezmall.models
 
+import java.util.*
+
 data class Order(
+    val title: String,
     val orderNumber: String,
     val subOrderNumber: String,
-    val currentOrderStatus: OrderStatus,
+    var currentOrderStatus: OrderStatus,
     val orderStatusList: List<OrderStatus>,
     val products: Map<Product, Int>, // product and quantity
     val issues: List<Issue>?,
     val shippingCost: Float = 0f,
     val couponDiscounts: Float = 0f,
     val otherDiscounts: Float = 0f,
-    val orderedBy: User
+    val orderedBy: User,
+    val orderDate: Date
 ) {
     val productCost: Float
         get() {

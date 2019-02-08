@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.ezmall.R" />
+
+        <variable
+            name="order"
+            type="com.ezmall.models.Order" />
+    </data>
+
+    <LinearLayout xmlns:tool="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_25dp"
+        android:layout_marginTop="@dimen/margin_15dp"
+        android:layout_marginRight="@dimen/margin_25dp"
+        android:layout_marginBottom="@dimen/margin_15dp"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="200dp"
+                app:mutableImageUrl="@{order.products}" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.2"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/orderListProductNameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="16sp"
+                android:text="@{order.title}"
+                tool:text="Pick any 1 Embrodered Suit by Zoha Crean" />
+
+            <TextView
+                android:id="@+id/orderListPriceTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_7dp"
+                android:textColor="@color/colorPrimaryDark"
+                app:mutableTextFloat="@{order.payable}"
+                tool:text="$17990" />
+
+            <TextView
+                android:id="@+id/OrderListCurrentStatusTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_7dp"
+                app:orderStatus="@{order.currentOrderStatus.orderStatus}"
+                tool:text="Cancelled" />
+
+            <TextView
+                android:id="@+id/OrderListDateTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_7dp"
+                app:date="@{order.orderDate}"
+                app:prefix="@{R.string.order_date}"
+                app:dateFormat='@{"MMM dd, yyyy"}'
+                tool:text="Date : Dec 20,2016" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:background="@drawable/bg_order_list_open_issues">
+
+                <TextView
+                    android:id="@+id/orderListOpenIssueTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/margin_10dp"
+                    android:paddingRight="@dimen/margin_10dp"
+                    android:text="@string/open_issues"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/orderListOrderDetailBTN"
+                style="@style/Base.TextAppearance.AppCompat.Widget.Button.Borderless.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_7dp"
+                android:background="@drawable/bg_order_list_order_details_btn"
+                android:text="@string/order_details"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>
