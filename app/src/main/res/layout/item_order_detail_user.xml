@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="user"
+            type="com.ezmall.models.User" />
+    </data>
+
+    <LinearLayout xmlns:tool="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_15dp"
+        android:layout_marginTop="@dimen/margin_15dp"
+        android:layout_marginEnd="@dimen/margin_35dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/deliver_to"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:text="@{user.name}"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_black"
+            android:textStyle="bold"
+            tool:text="Tejas Sherdiwala" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:text="@{user.address}"
+            android:textColor="@color/text_black"
+            tool:text="2/4455 " />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:text="@{user.phone}"
+            android:textColor="@color/text_black"
+            tool:text="+919999999999" />
+    </LinearLayout>
+</layout>

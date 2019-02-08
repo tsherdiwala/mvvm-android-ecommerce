@@ -1,0 +1,135 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.ezmall.R" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="product"
+            type="com.ezmall.ui.orderdetail.OrderDetailAdapter.OrderProduct" />
+
+    </data>
+
+    <LinearLayout xmlns:tool="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_15dp"
+        android:layout_marginTop="@dimen/margin_15dp"
+        android:layout_marginEnd="@dimen/margin_25dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal">
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="120dp"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                app:productImageUrl="@{product.product.imageUrl}" />
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@{product.product.name}"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_black"
+                    tool:text="Pick any 1 Embrodered Suit by Zoha Crean" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_7dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:textColor="@color/text_black"
+                        android:textStyle="bold"
+                        app:productPrice="@{product.product.price}"
+                        tool:text="@string/rs" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:layout_weight="1"
+                        android:text="@string/cash_on_delivery"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/text_gray"
+                        android:visibility="@{product.product.isCashOnDeliveryAvailable ? View.VISIBLE : View.INVISIBLE}" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_7dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@{context.getString(R.string.size,product.product.size)}"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/text_gray" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="3"
+                        android:text="@{context.getString(R.string.color,product.product.color)}"
+                        android:textAppearance="?android:attr/textAppearanceSmall"
+                        android:textColor="@color/text_gray" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:text="@{context.getString(R.string.qty,product.quantity)}"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/text_gray" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_15dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_black"
+            app:date="@{product.product.returnDate}"
+            app:dateFormat='@{"MMMM dd ,yyyy"}'
+            app:prefix="@{R.string.return_policy_validity}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_15dp"
+            android:text="@string/know_more"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/text_red" />
+
+    </LinearLayout>
+</layout>

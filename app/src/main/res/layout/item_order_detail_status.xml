@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="com.ezmall.R" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="orderStatus"
+            type="com.ezmall.models.OrderStatus" />
+
+        <variable
+            name="isTopLineVisible"
+            type="Boolean" />
+
+        <variable
+            name="isBottomLineVisible"
+            type="Boolean" />
+
+    </data>
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/margin_10dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <View
+                android:id="@+id/crowUpperLine"
+                android:layout_width="@dimen/dp1"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/bg_status_icon"
+                android:visibility="@{isTopLineVisible ? View.VISIBLE : View.INVISIBLE}" />
+
+
+            <ImageView
+                android:id="@+id/crowImg"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/bg_status"
+                android:scaleType="centerInside"
+                app:currentStatus="@{orderStatus}" />
+
+
+            <View
+                android:id="@+id/crowLowerLine"
+                android:layout_width="@dimen/dp1"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/bg_status_icon"
+                android:visibility="@{isBottomLineVisible ? View.VISIBLE : View.INVISIBLE}" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/crowTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_black"
+                app:orderStatus="@{orderStatus.orderStatus}" />
+
+
+            <TextView
+                android:id="@+id/crowDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_gray"
+                app:currentOrderStatus="@{orderStatus.orderStatus}"
+                app:date="@{orderStatus.date}"
+                app:dateFormat='@{"EEEE, MMMM dd, yyyy"}'
+                app:prefix="@{R.string.expected}"
+                tools:text="@string/expected" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>
