@@ -16,7 +16,7 @@ class OrderDetailViewModel(private val repository: Repository) : ViewModel() {
     var order = MutableLiveData<Order>()
 
     fun fetchOrders() {
-        repository.fetchOrders()
+        repository.fetchOrder()
             .subscribe(
                 {
                     order.value = it

@@ -49,18 +49,10 @@
                 android:onClick="@{() -> viewModel.openOrderDetails()}"
                 android:paddingTop="6dp"
                 android:paddingBottom="6dp"
-                android:text="@string/order_with_issues"
+                android:text="@string/order_detail"
                 android:textAppearance="?attr/textAppearanceListItem" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:drawableEnd="@drawable/ic_chevron_right_black_24dp"
-                android:onClick="@{() -> viewModel.openOrderDetails()}"
-                android:paddingTop="6dp"
-                android:paddingBottom="6dp"
-                android:text="@string/order_no_issues"
-                android:textAppearance="?attr/textAppearanceListItem" />
+
 
         </LinearLayout>
 

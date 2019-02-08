@@ -9,7 +9,6 @@ data class Product(
     val size: String,
     val color: String,
     val imageUrl: String,
-    val imageUrl: String,
     val returnDate: Date,
     val isCashOnDeliveryAvailable: Boolean
 )
