@@ -27,6 +27,11 @@ class OrderDetailActivity : ToolbarActivity<ActivityOrderDetailBinding>() {
 
         val activity = this@OrderDetailActivity
 
+        hasBack = true
+
+        setTitle(R.string.order_Detail)
+
+
         dataBinding.run {
             orderRV.run {
                 adapter = OrderDetailAdapter()

@@ -32,4 +32,6 @@
     <string name="status">STATUS</string>
     <string name="issue_type">Issue type: </string>
     <string name="registered_on">Registered on </string>
+    <string name="order_Detail">ORDER DETAILS</string>
+    <string name="expected">Expected by %s</string>
 </resources>

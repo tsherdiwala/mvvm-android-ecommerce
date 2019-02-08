@@ -59,13 +59,15 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/margin_10dp"
                     android:text="@string/status" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/margin_10dp"
-                    android:layout_marginEnd="@dimen/margin_10dp">
+                    android:paddingLeft="@dimen/margin_10dp"
+                    android:paddingRight="@dimen/margin_10dp"
+                    app:status="@{issueItem.status}">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -125,7 +127,9 @@
                         android:layout_height="wrap_content"
                         android:ellipsize="end"
                         android:singleLine="true"
-                        android:text="@{issueItem.registeredOn.toString()}"
+                        android:textColor="@color/colorPrimaryDark"
+                        app:date="@{issueItem.registeredOn}"
+                        app:dateFormat='@{"  dd MMM, yyyy"}'
                         tool:text=" 15 Jan, 2019" />
                 </LinearLayout>
 

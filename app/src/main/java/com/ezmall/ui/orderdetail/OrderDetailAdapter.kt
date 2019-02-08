@@ -239,12 +239,13 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                     orderIssueChildLL.addView(itemIssue.root)
                     itemIssue.issueItem = it
                 }
-
             }
 
 
             binding.orderDetailIssueLL.setOnClickListener {
+
                 orderIssues.isExpanded = !orderIssues.isExpanded
+
                 notifyItemChanged(adapterPosition)
 
             }

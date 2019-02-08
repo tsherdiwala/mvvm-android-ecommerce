@@ -8,7 +8,15 @@ import javax.inject.Inject
 class LocalDataSource @Inject constructor() {
     fun getOrders(): Single<Order> {
 
-        val product = Product("pid", "Test Product", 123.12f, "M", "Blue")
+        val product = Product(
+            "pid",
+            "Test Product",
+            123.12f,
+            "M",
+            "Blue",
+            "https://images.voonik.com/78416852/embroidred-designer-navy-blue-and-yellow-color-geor-original.jpg?1512544999",
+            Date(119, 2, 15)
+        )
         val issueList = mutableListOf<Issue>()
         val user = User(
             "uid1",

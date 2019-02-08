@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -49,7 +50,7 @@
                 android:layout_height="30dp"
                 android:background="@drawable/bg_status"
                 android:scaleType="centerInside"
-                android:src="@drawable/ic_circle" />
+                app:currentStatus="@{orderStatus}" />
 
 
             <View
@@ -84,11 +85,14 @@
                 android:id="@+id/crowDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{orderStatus.date.toString()}"
+                app:date="@{orderStatus.date}"
+                app:prefix="@{R.string.expected}"
+                app:currentOrderStatus="@{orderStatus.orderStatus}"
+                app:dateFormat='@{"EEEE, MMMM dd, yyyy"}'
                 android:textAppearance="?android:attr/textAppearanceSearchResultSubtitle"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="11sp"
-                tools:text="Description" />
+                tools:text="@string/expected" />
 
         </LinearLayout>
     </LinearLayout>

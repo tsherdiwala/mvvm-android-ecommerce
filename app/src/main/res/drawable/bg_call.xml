@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/bg_activity" />
+            <padding
+                android:bottom="@dimen/margin_5dp"
+                android:left="@dimen/margin_5dp"
+                android:right="@dimen/margin_5dp"
+                android:top="@dimen/margin_5dp" />
+        </shape>
+    </item>
+    <item
+        android:drawable="@drawable/ic_call"
+        android:gravity="center" />
+
+</layer-list>

@@ -16,7 +16,6 @@
         android:layout_marginStart="@dimen/margin_15dp"
         android:layout_marginTop="@dimen/margin_15dp"
         android:layout_marginEnd="@dimen/margin_25dp"
-        android:layout_marginBottom="@dimen/margin_15dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -35,14 +34,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:minHeight="@dimen/margin_150"
-                    android:src="@drawable/ic_launcher_background" />
+                    app:productImageUrl="@{product.product.imageUrl}" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.2"
+                android:layout_weight="2"
                 android:orientation="vertical">
 
                 <TextView
@@ -76,7 +75,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+                        android:layout_weight="3"
                         android:text="@{context.getString(R.string.color,product.product.color)}" />
                 </LinearLayout>
 
@@ -94,7 +93,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_15dp"
-            android:text="@string/return_policy_validity"
+            app:date="@{product.product.returnDate}"
+            app:dateFormat='@{"MMMM dd ,yyyy"}'
+            app:prefix="@{R.string.return_policy_validity}"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp" />
 
