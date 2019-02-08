@@ -1,7 +1,5 @@
 package com.ezmall.models
 
-import java.util.*
-
 data class Order(
     val title: String,
     val orderNumber: String,

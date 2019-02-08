@@ -25,17 +25,6 @@ fun setOrderList(recyclerView: RecyclerView, item: MutableList<Order>) {
     }
 }
 
-@BindingAdapter("mutableProductText")
-fun setMutableProductText(view: TextView, text: Map<Product, Int>?) {
-
-    val parentActivity = view.getParentActivity()
-    if (parentActivity != null && text != null) {
-        text.forEach {
-            view.text = it.key.name
-        }
-    }
-}
-
 @BindingAdapter("mutableOrderDate")
 fun setMutableOrderDate(view: TextView, text: String?) {
     val parentActivity = view.getParentActivity()

@@ -32,7 +32,7 @@ class LocalDataSource @Inject constructor() {
         )
 
         return Order(
-            "abc",
+            "Pick any 1 Embrodered Suit by Zoha Crean",
             "12345",
             "12345",
             OrderStatus(OrderStatusEnum.ORDERED, Date()),
