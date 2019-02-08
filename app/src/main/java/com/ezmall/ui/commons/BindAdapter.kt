@@ -12,6 +12,7 @@ import com.ezmall.models.Order
 import com.ezmall.models.OrderStatusEnum
 import com.ezmall.models.Product
 import com.ezmall.ui.orderlist.OrderListAdapter
+import java.text.DecimalFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -97,3 +98,16 @@ fun setMutableTextFloat(view: TextView, text: Float?) {
     if (parentActivity != null && text != null)
         view.text = text.toString() ?: ""
 }
+
+/*
+@BindingAdapter(value = ["cost", "currencyId", "precision"], requireAll = false)
+fun setCost(view: TextView, cost: Float, currencyId: Int = R.string.currency_inr, precision: Int = 2) {
+
+    val parentActivity = view.getParentActivity()
+
+    if (parentActivity != null) {
+        view.text =
+            "${parentActivity.getString(currencyId)} ${DecimalFormat("#.##").format(cost)}"
+    }
+
+}*/

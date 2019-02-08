@@ -13,4 +13,6 @@
     <string name="order_Status_shipped">Shipped</string>
     <string name="order_Status_delivered">Delivered</string>
     <string name="title_orders">My Orders</string>
+
+    <string name="cost">₹ %.2f</string>
 </resources>
