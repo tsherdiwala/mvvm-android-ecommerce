@@ -3,9 +3,21 @@
 
     <data>
 
+        <import type="com.ezmall.R" />
+        <import type="android.view.View" />
+
         <variable
             name="orderStatus"
             type="com.ezmall.models.OrderStatus" />
+
+        <variable
+            name="isTopLineVisible"
+            type="Boolean" />
+
+        <variable
+            name="isBottomLineVisible"
+            type="Boolean" />
+
     </data>
 
     <LinearLayout xmlns:tools="http://schemas.android.com/tools"
@@ -22,6 +34,7 @@
 
 
             <View
+                android:visibility="@{isTopLineVisible ? View.VISIBLE : View.INVISIBLE}"
                 android:id="@+id/crowUpperLine"
                 android:layout_width="@dimen/margin_2dp"
                 android:layout_height="match_parent"
@@ -33,6 +46,7 @@
 
             <View
                 android:id="@+id/crowLowerLine"
+                android:visibility="@{isBottomLineVisible ? View.VISIBLE : View.INVISIBLE}"
                 android:layout_width="@dimen/margin_2dp"
                 android:layout_height="match_parent"
                 android:layout_below="@+id/crowImg"
@@ -71,7 +85,7 @@
                 android:id="@+id/crowTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10-12-2018"
+                android:text="@{orderStatus.orderStatus.name}"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="12sp" />
@@ -83,6 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/crowTitle"
                 android:layout_centerVertical="true"
+                android:text="@{orderStatus.date.toString()}"
                 android:textAppearance="?android:attr/textAppearanceSearchResultSubtitle"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="11sp"

@@ -1,48 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<data>
+    <data>
 
-    <variable
-        name="issue"
-        type="com.ezmall.ui.orderdetail.OrderDetailAdapter.OrderIssues" />
-</data>
+        <import type="com.ezmall.R" />
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="@dimen/margin_15dp"
-    android:layout_marginTop="@dimen/margin_10dp"
-    android:layout_marginEnd="@dimen/margin_15dp"
-    android:elevation="@dimen/margin_20dp"
-    android:gravity="center"
-    android:orientation="horizontal"
-    android:padding="@dimen/margin_10dp">
+        <variable
+            name="issue"
+            type="com.ezmall.ui.orderdetail.OrderDetailAdapter.OrderIssues" />
+    </data>
 
-
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/issue_registered"
-        android:textColor="@color/colorPrimaryDark" />
+        app:cardElevation="@dimen/margin_10dp"
+        app:cardCornerRadius="@dimen/margin_10dp"
+        android:layout_marginStart="@dimen/margin_15dp"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:layout_marginEnd="@dimen/margin_15dp"
+        android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_10dp"
-        android:layout_weight="1">
+        <LinearLayout
+            android:id="@+id/order_detail_issueLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_10dp">
 
-        <TextView
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/issue_registered"
+                android:textColor="@color/colorPrimaryDark" />
+
+            <FrameLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_10dp"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{context.getString(R.string.open,issue.openIssueCount)}" />
+            </FrameLayout>
+
+
+            <ImageView
+                android:layout_width="@dimen/margin_25dp"
+                android:layout_height="@dimen/margin_25dp"
+                android:layout_marginEnd="@dimen/margin_10dp"
+                android:src="@drawable/ic_launcher_background" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="@dimen/margin_35dp"
+            android:id="@+id/order_detail_childLL"
+            android:paddingBottom="@dimen/margin_15dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/open" />
-    </LinearLayout>
+            android:orientation="vertical" />
 
-
-    <ImageView
-        android:layout_width="@dimen/margin_25dp"
-        android:layout_height="@dimen/margin_25dp"
-        android:layout_marginEnd="@dimen/margin_10dp"
-        android:src="@drawable/ic_launcher_background" />
-</LinearLayout>
+    </androidx.cardview.widget.CardView>
 </layout>

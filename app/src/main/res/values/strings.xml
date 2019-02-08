@@ -6,10 +6,10 @@
     <string name="order_no_issues">Order (No Issues)</string>
     <string name="sub_order_no">Suborder No. %s</string>
     <string name="order_no">Order No. %s</string>
-    <string name="rs">Rs. %s</string>
+    <string name="rs">Rs. %.2f</string>
     <string name="size">Size: %s</string>
     <string name="color">Color: %s</string>
-    <string name="qty">Qty : %s</string>
+    <string name="qty">Qty : %d</string>
     <string name="return_policy_validity">Return policy valid till %s</string>
     <string name="know_more">KNOW MORE</string>
     <string name="price_details">PRICE DETAILS</string>
@@ -28,4 +28,8 @@
     <string name="deliver_to">DELIVER TO</string>
     <string name="issue_registered">Issues Registered</string>
     <string name="open">%s OPEN</string>
+    <string name="issue_id">ISSUE_ID : </string>
+    <string name="status">STATUS</string>
+    <string name="issue_type">Issue type: </string>
+    <string name="registered_on">Registered on </string>
 </resources>

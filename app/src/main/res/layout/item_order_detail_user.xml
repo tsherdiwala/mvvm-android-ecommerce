@@ -12,13 +12,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_15dp"
+        android:layout_marginTop="@dimen/margin_15dp"
         android:layout_marginEnd="@dimen/margin_35dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_15dp"
             android:text="@string/deliver_to"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="15sp" />
@@ -27,6 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_10dp"
+            android:text="@{user.name}"
             android:textColor="@color/colorPrimaryDark"
             tool:text="Gandhi himanshu" />
 
@@ -34,12 +35,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_10dp"
+            android:text="@{user.address}"
             tool:text="2/4455 " />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_5dp"
+            android:text="@{user.phone}"
             tool:text="+919344554665" />
     </LinearLayout>
 </layout>

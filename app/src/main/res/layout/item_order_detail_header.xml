@@ -2,7 +2,10 @@
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+        <import type="com.ezmall.R" />
+
         <variable
             name="orderHeader"
             type="com.ezmall.ui.orderdetail.OrderDetailAdapter.OrderHeader" />
@@ -18,14 +21,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:subOrderNo="@{orderHeader.orderNumber}"
+            android:text="@{context.getString(R.string.sub_order_no,orderHeader.subOrderNumber)}"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:orderNo="@{orderHeader.subOrderNumber}"
+            android:text="@{context.getString(R.string.sub_order_no,orderHeader.orderNumber)}"
             android:textSize="13sp" />
     </LinearLayout>
 </layout>

@@ -7,14 +7,59 @@ import javax.inject.Inject
 
 class LocalDataSource @Inject constructor() {
     fun getOrders(): Single<Order> {
-        val product = Product("pid", "Test Product", 123.12f, "M", "Blue")
 
+        val product = Product("pid", "Test Product", 123.12f, "M", "Blue")
+        val issueList = mutableListOf<Issue>()
         val user = User(
             "uid1",
             "Tejas Sherdiwala",
             "Some random land, Surat, Gujarat",
             "+91 9999999999"
         )
+        val issue = Issue(
+            "3210",
+            "product Demage",
+            Date(),
+            IssueStatus.OPEN
+        )
+        val issue1 = Issue(
+            "3211",
+            "product Delivery Related",
+            Date(),
+            IssueStatus.CLOSED
+        )
+        val issue2 = Issue(
+            "3212",
+            "Delivery Related",
+            Date(),
+            IssueStatus.CLOSED
+        )
+        val issue4 = Issue(
+            "3214",
+            "Dispatch Late",
+            Date(),
+            IssueStatus.CLOSED
+        )
+        val issue5 = Issue(
+            "3215",
+            "product Dispatch Late",
+            Date(),
+            IssueStatus.CLOSED
+        )
+        val issue3 = Issue(
+            "3213",
+            "product Related",
+            Date(),
+            IssueStatus.OPEN
+        )
+
+        issueList.add(issue)
+        issueList.add(issue1)
+        issueList.add(issue2)
+        issueList.add(issue3)
+        issueList.add(issue4)
+        issueList.add(issue5)
+
 
         val order = Order(
             "12345",
@@ -29,7 +74,7 @@ class LocalDataSource @Inject constructor() {
             mapOf(
                 product to 2
             ),
-            null,
+            issueList,
             10.12f,
             1.1f,
             2.0f,

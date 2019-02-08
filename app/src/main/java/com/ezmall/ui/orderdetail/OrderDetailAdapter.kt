@@ -1,5 +1,6 @@
 package com.ezmall.ui.orderdetail
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,9 +32,13 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         list.add(OrderHeader(order!!.orderNumber, order!!.subOrderNumber))
 
+        list.add(OrderView())
+
         order!!.products.map {
             list.add(OrderProduct(it.key, it.value))
         }
+
+        list.add(OrderView())
 
         list.addAll(order!!.orderStatusList)
 
@@ -47,7 +52,11 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             )
         }
 
+        list.add(OrderView())
+
         list.add(order!!.orderedBy)
+
+        list.add(OrderView())
 
         list.add(
             OrderCost(
@@ -65,6 +74,7 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             OrderFooter()
         )
         orderDataList = list
+
     }
 
 
@@ -77,6 +87,7 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             is User -> ORDER_USER
             is OrderCost -> ORDER_COST
             is OrderFooter -> ORDER_FOOTER
+            is OrderView -> ORDER_EMPTY_VIEW
             else -> throw IllegalArgumentException("Unknown view for class : ${orderDataList?.get(position)?.javaClass?.simpleName}")
         }
     }
@@ -144,6 +155,10 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 val view = inflater.inflate(R.layout.item_order_detail_footer, parent, false)
                 OrderFooterVH(view)
             }
+            ORDER_EMPTY_VIEW -> {
+                val view = inflater.inflate(R.layout.item_order_detail_view, parent, false)
+                OrderViewVH(view)
+            }
             else -> throw IllegalArgumentException("Unsupported view type: $viewType")
         }
     }
@@ -162,7 +177,6 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             is OrderUserVH -> holder.bind(orderDataList?.get(position) as User)
             is OrderCostVH -> holder.bind(orderDataList?.get(position) as OrderCost)
             is OrderFooterVH -> holder.bind(orderDataList?.get(position) as OrderFooter)
-
         }
     }
 
@@ -191,7 +205,12 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     inner class OrderStatusVH(private val binding: ItemOrderDetailStatusBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(orderStatus: OrderStatus) {
-            binding.orderStatus = orderStatus
+
+            with(binding) {
+                this.orderStatus = orderStatus
+                isTopLineVisible = (orderDataList?.get(adapterPosition - 1) is OrderStatus)
+                isBottomLineVisible = (orderDataList?.get(adapterPosition + 1) is OrderStatus)
+            }
             binding.executePendingBindings()
         }
 
@@ -201,8 +220,36 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
         fun bind(orderIssues: OrderIssues) {
             binding.issue = orderIssues
-        }
+            binding.executePendingBindings()
 
+            val orderIssueChildLL = binding.orderDetailChildLL
+            val layoutInflater = LayoutInflater.from(orderIssueChildLL.context)
+
+            orderIssueChildLL.removeAllViews()
+
+            if (orderIssues.isExpanded) {
+
+                orderIssues.issues.forEach {
+                    val itemIssue = DataBindingUtil.inflate<ItemOrderDetailIssueItemBinding>(
+                        layoutInflater,
+                        R.layout.item_order_detail_issue_item,
+                        orderIssueChildLL,
+                        false
+                    )
+                    orderIssueChildLL.addView(itemIssue.root)
+                    itemIssue.issueItem = it
+                }
+
+            }
+
+
+            binding.orderDetailIssueLL.setOnClickListener {
+                orderIssues.isExpanded = !orderIssues.isExpanded
+                notifyItemChanged(adapterPosition)
+
+            }
+
+        }
     }
 
     inner class OrderUserVH(private val binding: ItemOrderDetailUserBinding) : RecyclerView.ViewHolder(binding.root) {
@@ -222,9 +269,14 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     }
 
     inner class OrderFooterVH(private val view: View) : RecyclerView.ViewHolder(view) {
+
         fun bind(orderFooter: OrderFooter) {
 
         }
+
+    }
+
+    inner class OrderViewVH(view: View) : RecyclerView.ViewHolder(view) {
 
     }
 
@@ -247,6 +299,8 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class OrderFooter
 
+    class OrderView
+
     companion object {
         private const val ORDER_HEADER = 1
         private const val ORDER_PRODUCT = 2
@@ -255,5 +309,6 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private const val ORDER_USER = 5
         private const val ORDER_COST = 6
         private const val ORDER_FOOTER = 7
+        private const val ORDER_EMPTY_VIEW = 8
     }
 }

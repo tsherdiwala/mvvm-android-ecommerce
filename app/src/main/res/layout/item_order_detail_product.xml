@@ -1,6 +1,9 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
+        <import type="com.ezmall.R" />
 
         <variable
             name="product"
@@ -45,6 +48,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@{product.product.name}"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="16sp"
                     tool:text="Pick any 1 Embrodered Suit by Zoha Crean" />
@@ -54,6 +58,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_7dp"
                     android:textColor="@color/colorPrimaryDark"
+                    app:productPrice="@{product.product.price}"
                     tool:text="@string/rs" />
 
                 <LinearLayout
@@ -66,20 +71,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/size" />
+                        android:text="@{context.getString(R.string.size,product.product.size)}" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/color" />
+                        android:text="@{context.getString(R.string.color,product.product.color)}" />
                 </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="7dp"
-                    android:text="@string/qty" />
+                    android:text="@{context.getString(R.string.qty,product.quantity)}" />
 
             </LinearLayout>
 
