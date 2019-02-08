@@ -82,7 +82,33 @@ object AppBindingAdapter {
         }
     }
 
-    @BindingAdapter("status")
+    @BindingAdapter("orderStatus")
+    @JvmStatic
+    fun setMutableTextStatus(view: TextView, orderStatus: OrderStatusEnum?) {
+
+        val parentActivity = view.getParentActivity()
+        if (parentActivity != null && orderStatus != null) {
+
+            when (orderStatus) {
+                OrderStatusEnum.ORDERED -> {
+                    view.text = parentActivity.getString(R.string.order_status_ordered)
+                    view.setTextColor(ContextCompat.getColor(parentActivity, android.R.color.holo_green_dark))
+                }
+                OrderStatusEnum.READY_TO_SHIP -> {
+                    view.text = parentActivity.getString(R.string.order_status_ready_to_ship)
+                }
+                OrderStatusEnum.SHIPPED -> {
+                    view.text = parentActivity.getString(R.string.order_Status_shipped)
+                }
+                OrderStatusEnum.DELIVERED -> {
+                    view.text = parentActivity.getString(R.string.order_Status_delivered)
+                }
+            }
+        }
+    }
+
+
+    @BindingAdapter("issueStatus")
     @JvmStatic
     fun setBackground(view: LinearLayout, text: IssueStatus) {
 
@@ -91,6 +117,9 @@ object AppBindingAdapter {
         if (parentActivity != null) {
             if (text == IssueStatus.OPEN)
                 view.background = ContextCompat.getDrawable(parentActivity, R.drawable.bg_open_list_issue)
+            else
+                view.background = ContextCompat.getDrawable(parentActivity, R.drawable.bg_close_list_issue)
+
         }
     }
 }

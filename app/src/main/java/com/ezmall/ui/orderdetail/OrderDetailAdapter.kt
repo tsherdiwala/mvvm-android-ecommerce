@@ -195,7 +195,11 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(orderProduct: OrderProduct) {
-            binding.product = orderProduct
+
+            with(binding) {
+                this.product = orderProduct
+                isCashOnDeliveryVisible = orderProduct.product.isCashOnDeliveryAvailable
+            }
             binding.executePendingBindings()
 
         }

@@ -15,6 +15,7 @@
         xmlns:tool="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@drawable/bg_issue_list_item"
         android:layout_marginStart="@dimen/margin_10dp"
         android:layout_marginTop="@dimen/margin_5dp"
         android:layout_marginEnd="@dimen/margin_10dp"
@@ -67,7 +68,7 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="@dimen/margin_10dp"
                     android:paddingRight="@dimen/margin_10dp"
-                    app:status="@{issueItem.status}">
+                    app:issueStatus="@{issueItem.status}">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -82,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="@dimen/margin_10dp"
-                android:background="@color/colorPrimaryDark" />
+                android:background="@color/bg_issue_list_line" />
 
             <LinearLayout
                 android:layout_width="match_parent"

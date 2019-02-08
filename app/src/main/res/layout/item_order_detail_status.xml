@@ -75,7 +75,7 @@
                 android:id="@+id/crowTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{orderStatus.orderStatus.name}"
+                app:orderStatus="@{orderStatus.orderStatus}"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="12sp" />

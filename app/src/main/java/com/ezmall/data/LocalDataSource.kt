@@ -15,7 +15,8 @@ class LocalDataSource @Inject constructor() {
             "M",
             "Blue",
             "https://images.voonik.com/78416852/embroidred-designer-navy-blue-and-yellow-color-geor-original.jpg?1512544999",
-            Date(119, 2, 15)
+            Date(119, 2, 15),
+            true
         )
         val issueList = mutableListOf<Issue>()
         val user = User(

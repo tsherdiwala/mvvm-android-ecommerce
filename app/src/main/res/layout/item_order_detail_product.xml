@@ -4,10 +4,16 @@
     <data>
 
         <import type="com.ezmall.R" />
+        <import type="android.view.View" />
 
         <variable
             name="product"
             type="com.ezmall.ui.orderdetail.OrderDetailAdapter.OrderProduct" />
+
+        <variable
+            name="isCashOnDeliveryVisible"
+            type="Boolean" />
+
     </data>
 
     <LinearLayout xmlns:tool="http://schemas.android.com/tools"
@@ -52,13 +58,30 @@
                     android:textSize="16sp"
                     tool:text="Pick any 1 Embrodered Suit by Zoha Crean" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/margin_7dp"
-                    android:textColor="@color/colorPrimaryDark"
-                    app:productPrice="@{product.product.price}"
-                    tool:text="@string/rs" />
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorPrimaryDark"
+                        app:productPrice="@{product.product.price}"
+                        tool:text="@string/rs"
+                        android:textStyle="bold"
+                        android:textSize="16sp"/>
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="@dimen/margin_10dp"
+                        android:layout_height="wrap_content"
+                        android:text="@string/case_on_delivery"
+                        android:visibility="@{isCashOnDeliveryVisible ? View.VISIBLE : View.INVISIBLE}" />
+
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -93,11 +116,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_15dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="16sp"
             app:date="@{product.product.returnDate}"
             app:dateFormat='@{"MMMM dd ,yyyy"}'
-            app:prefix="@{R.string.return_policy_validity}"
-            android:textColor="@color/colorPrimaryDark"
-            android:textSize="16sp" />
+            app:prefix="@{R.string.return_policy_validity}" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -34,4 +34,9 @@
     <string name="registered_on">Registered on </string>
     <string name="order_Detail">ORDER DETAILS</string>
     <string name="expected">Expected by %s</string>
+    <string name="case_on_delivery">Case on Delivery</string>
+    <string name="order_status_ordered">Ordered</string>
+    <string name="order_status_ready_to_ship">Ready to Ship</string>
+    <string name="order_Status_shipped">Shipped</string>
+    <string name="order_Status_delivered">Delivery</string>
 </resources>
