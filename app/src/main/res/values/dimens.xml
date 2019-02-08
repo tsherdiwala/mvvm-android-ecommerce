@@ -28,5 +28,7 @@
     <dimen name="margin_8dp">8dp</dimen>
     <dimen name="margin_100dp">100dp</dimen>
 
+    <dimen name="dp1">1dp</dimen>
+
 
 </resources>
