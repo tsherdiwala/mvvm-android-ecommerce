@@ -18,7 +18,7 @@
     <string name="shipping_price">Shipping Price</string>
     <string name="total">Total</string>
     <string name="coupon_discounts">Coupon Discounts</string>
-    <string name="rs_minus">-Rs. %s</string>
+    <string name="rs_minus">-Rs. %.2f</string>
     <string name="other_discount">Other Discounts</string>
     <string name="payable_amount">Payable After Discount</string>
     <string name="include_tex">Above Prices are inclusive of taxes, if applicable</string>

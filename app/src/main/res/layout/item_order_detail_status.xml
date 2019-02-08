@@ -74,7 +74,7 @@
                 android:id="@+id/crowTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="10-12-2018"
+                android:text="@{orderStatus.orderStatus.name}"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="12sp" />
@@ -84,6 +84,7 @@
                 android:id="@+id/crowDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="@{orderStatus.date.toString()}"
                 android:textAppearance="?android:attr/textAppearanceSearchResultSubtitle"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="11sp"
