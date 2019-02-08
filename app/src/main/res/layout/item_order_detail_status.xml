@@ -75,23 +75,21 @@
                 android:id="@+id/crowTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:orderStatus="@{orderStatus.orderStatus}"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="12sp" />
+                android:textColor="@color/text_black"
+                app:orderStatus="@{orderStatus.orderStatus}" />
 
 
             <TextView
                 android:id="@+id/crowDesc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:date="@{orderStatus.date}"
-                app:prefix="@{R.string.expected}"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_gray"
                 app:currentOrderStatus="@{orderStatus.orderStatus}"
+                app:date="@{orderStatus.date}"
                 app:dateFormat='@{"EEEE, MMMM dd, yyyy"}'
-                android:textAppearance="?android:attr/textAppearanceSearchResultSubtitle"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="11sp"
+                app:prefix="@{R.string.expected}"
                 tools:text="@string/expected" />
 
         </LinearLayout>

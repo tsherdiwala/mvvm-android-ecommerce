@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
         <import type="com.ezmall.R" />
+
+        <import type="android.view.View" />
 
         <variable
             name="issue"
@@ -18,56 +21,60 @@
         android:layout_marginTop="@dimen/margin_10dp"
         android:layout_marginEnd="@dimen/margin_15dp"
         android:orientation="vertical"
-        app:cardCornerRadius="@dimen/margin_10dp"
-        app:cardElevation="@dimen/margin_10dp">
-
-        <RelativeLayout
-            android:id="@+id/order_detail_issueLL"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:padding="@dimen/margin_10dp">
-
-            <TextView
-                android:id="@+id/issues_registerTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="start"
-                android:text="@string/issue_registered"
-                android:textColor="@color/colorPrimaryDark" />
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_20dp"
-                android:layout_toRightOf="@id/issues_registerTV"
-                android:background="@drawable/bg_open_list_issue"
-                android:paddingLeft="@dimen/margin_10dp"
-                android:paddingRight="@dimen/margin_10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@{context.getString(R.string.open,issue.openIssueCount)}" />
-            </FrameLayout>
-
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_gravity="end"
-                android:src="@drawable/ic_down_arrow" />
-        </RelativeLayout>
+        app:cardCornerRadius="@dimen/margin_10dp">
 
         <LinearLayout
-            android:id="@+id/order_detail_childLL"
-            android:layout_width="wrap_content"
+            android:id="@+id/orderDetailIssueLL"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/margin_35dp"
             android:orientation="vertical"
-            android:paddingBottom="@dimen/margin_15dp" />
+            android:padding="@dimen/margin_10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/issues_registerTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:text="@string/issue_registered"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_20dp"
+                    android:layout_weight="1"
+                    android:paddingLeft="@dimen/margin_10dp"
+                    android:paddingRight="@dimen/margin_10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_open_list_issue"
+                        android:padding="3dp"
+                        android:text="@{context.getString(R.string.open,issue.openIssueCount)}"
+                        android:visibility="@{issue.openIssueCount > 0 ? View.VISIBLE : View.GONE}"
+                        tools:text="ABC" />
+                </FrameLayout>
+
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_down_arrow" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/order_detail_childLL"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 </layout>

@@ -1,11 +1,9 @@
 package com.ezmall.ui.orderdetail
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.ezmall.R
 import com.ezmall.databinding.*
@@ -87,7 +85,7 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             is User -> ORDER_USER
             is OrderCost -> ORDER_COST
             is OrderFooter -> ORDER_FOOTER
-            is OrderView -> ORDER_EMPTY_VIEW
+            is OrderView -> ORDER_SEPARATOR
             else -> throw IllegalArgumentException("Unknown view for class : ${orderDataList?.get(position)?.javaClass?.simpleName}")
         }
     }
@@ -155,9 +153,9 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                 val view = inflater.inflate(R.layout.item_order_detail_footer, parent, false)
                 OrderFooterVH(view)
             }
-            ORDER_EMPTY_VIEW -> {
-                val view = inflater.inflate(R.layout.item_order_detail_view, parent, false)
-                OrderViewVH(view)
+            ORDER_SEPARATOR -> {
+                val view = inflater.inflate(R.layout.item_order_separator, parent, false)
+                OrderSeparatorVH(view)
             }
             else -> throw IllegalArgumentException("Unsupported view type: $viewType")
         }
@@ -176,7 +174,6 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             is OrderIssueVH -> holder.bind(orderDataList?.get(position) as OrderIssues)
             is OrderUserVH -> holder.bind(orderDataList?.get(position) as User)
             is OrderCostVH -> holder.bind(orderDataList?.get(position) as OrderCost)
-            is OrderFooterVH -> holder.bind(orderDataList?.get(position) as OrderFooter)
         }
     }
 
@@ -198,7 +195,6 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
             with(binding) {
                 this.product = orderProduct
-                isCashOnDeliveryVisible = orderProduct.product.isCashOnDeliveryAvailable
             }
             binding.executePendingBindings()
 
@@ -247,11 +243,8 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
 
             binding.orderDetailIssueLL.setOnClickListener {
-
                 orderIssues.isExpanded = !orderIssues.isExpanded
-
                 notifyItemChanged(adapterPosition)
-
             }
 
         }
@@ -273,18 +266,9 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     }
 
-    inner class OrderFooterVH(private val view: View) : RecyclerView.ViewHolder(view) {
+    inner class OrderFooterVH(private val view: View) : RecyclerView.ViewHolder(view)
 
-        fun bind(orderFooter: OrderFooter) {
-
-        }
-
-    }
-
-    inner class OrderViewVH(view: View) : RecyclerView.ViewHolder(view) {
-
-    }
-
+    inner class OrderSeparatorVH(view: View) : RecyclerView.ViewHolder(view)
 
     data class OrderHeader(val orderNumber: String, val subOrderNumber: String)
 
@@ -314,6 +298,6 @@ class OrderDetailAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private const val ORDER_USER = 5
         private const val ORDER_COST = 6
         private const val ORDER_FOOTER = 7
-        private const val ORDER_EMPTY_VIEW = 8
+        private const val ORDER_SEPARATOR = 8
     }
 }

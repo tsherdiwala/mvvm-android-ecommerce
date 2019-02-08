@@ -15,4 +15,12 @@
     <color name="bg_issue_list_strock">#e9e9e9</color>
 
     <color name="fotter_color">#fff9ee</color>
+
+    <color name="bg_order_detail_separator">#cdcdcd</color>
+
+    <color name="text_gray">#a5a5a5</color>
+    <color name="text_black">#000000</color>
+
+    <color name="text_red">#d1051e</color>
+
 </resources>

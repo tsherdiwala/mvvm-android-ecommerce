@@ -15,7 +15,7 @@ class LocalDataSource @Inject constructor() {
             "M",
             "Blue",
             "https://images.voonik.com/78416852/embroidred-designer-navy-blue-and-yellow-color-geor-original.jpg?1512544999",
-            Date(119, 2, 15),
+            Date(),
             true
         )
         val issueList = mutableListOf<Issue>()
@@ -33,7 +33,7 @@ class LocalDataSource @Inject constructor() {
         )
         val issue1 = Issue(
             "3211",
-            "product Delivery Related",
+            "Product Delivery Related",
             Date(),
             IssueStatus.CLOSED
         )
@@ -51,13 +51,13 @@ class LocalDataSource @Inject constructor() {
         )
         val issue5 = Issue(
             "3215",
-            "product Dispatch Late",
+            "Product Dispatch Late",
             Date(),
             IssueStatus.CLOSED
         )
         val issue3 = Issue(
             "3213",
-            "product Related",
+            "Product Related",
             Date(),
             IssueStatus.OPEN
         )

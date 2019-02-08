@@ -5,10 +5,10 @@
         <shape android:shape="oval">
             <solid android:color="@color/bg_activity" />
             <padding
-                android:bottom="@dimen/margin_5dp"
-                android:left="@dimen/margin_5dp"
-                android:right="@dimen/margin_5dp"
-                android:top="@dimen/margin_5dp" />
+                android:bottom="@dimen/margin_10dp"
+                android:left="@dimen/margin_10dp"
+                android:right="@dimen/margin_10dp"
+                android:top="@dimen/margin_10dp" />
         </shape>
     </item>
     <item

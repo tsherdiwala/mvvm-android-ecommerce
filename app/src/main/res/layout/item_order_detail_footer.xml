@@ -8,12 +8,12 @@
 
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/margin_100dp"
         android:layout_marginTop="@dimen/margin_10dp"
-        android:layout_marginEnd="@dimen/margin_100dp"
         android:gravity="center"
+        android:paddingStart="@dimen/margin_15dp"
+        android:paddingEnd="@dimen/margin_15dp"
         android:text="@string/other_support" />
 
     <LinearLayout
@@ -63,11 +63,11 @@
                 android:src="@drawable/bg_call" />
 
             <TextView
-                android:textAllCaps="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/margin_15dp"
                 android:text="@string/call_us"
+                android:textAllCaps="true"
                 android:textColor="@color/bg_activity"
                 android:textSize="20sp" />
         </LinearLayout>

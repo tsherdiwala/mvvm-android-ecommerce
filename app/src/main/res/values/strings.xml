@@ -28,13 +28,13 @@
     <string name="deliver_to">DELIVER TO</string>
     <string name="issue_registered">Issues Registered</string>
     <string name="open">%s OPEN</string>
-    <string name="issue_id">ISSUE_ID : </string>
+    <string name="issue_id">ISSUE ID : </string>
     <string name="status">STATUS</string>
     <string name="issue_type">Issue type: </string>
     <string name="registered_on">Registered on </string>
     <string name="order_Detail">ORDER DETAILS</string>
     <string name="expected">Expected by %s</string>
-    <string name="case_on_delivery">Case on Delivery</string>
+    <string name="cash_on_delivery">Cash on Delivery</string>
     <string name="order_status_ordered">Ordered</string>
     <string name="order_status_ready_to_ship">Ready to Ship</string>
     <string name="order_Status_shipped">Shipped</string>
